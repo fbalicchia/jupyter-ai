@@ -5,6 +5,7 @@ from langchain.embeddings import (
     CohereEmbeddings,
     HuggingFaceHubEmbeddings,
     OpenAIEmbeddings,
+    GPT4AllEmbeddings,
 )
 from langchain.embeddings.base import Embeddings
 from pydantic import BaseModel, Extra
@@ -66,6 +67,21 @@ class OpenAIEmbeddingsProvider(BaseEmbeddingsProvider, OpenAIEmbeddings):
     model_id_key = "model"
     pypi_package_deps = ["openai"]
     auth_strategy = EnvAuthStrategy(name="OPENAI_API_KEY")
+    
+class GPT4AllEmbeddingsProvider(BaseEmbeddingsProvider, GPT4AllEmbeddings):
+    
+    id = "gpt4all"
+    name = "Gpt4all"
+    models = [
+        "ggml-gpt4all-j-v1.2-jazzy",
+        "ggml-gpt4all-j-v1.3-groovy",
+        # this one needs llama backend and has licence restriction
+        "ggml-gpt4all-l13b-snoozy",
+    ]
+    model_id_key = "model"
+    pypi_package_deps = ["gpt4all"]
+    auth_strategy = None
+ 
 
 
 class CohereEmbeddingsProvider(BaseEmbeddingsProvider, CohereEmbeddings):

@@ -5,6 +5,7 @@ from .embedding_providers import (
     CohereEmbeddingsProvider,
     HfHubEmbeddingsProvider,
     OpenAIEmbeddingsProvider,
+    GPT4AllEmbeddingsProvider,
 )
 from .exception import store_exception
 from .magics import AiMagics
