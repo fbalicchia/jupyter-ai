@@ -604,6 +604,7 @@ class BedrockProvider(BaseProvider, Bedrock):
         "ai21.j2-grande-instruct",
         "ai21.j2-mid",
         "ai21.j2-ultra",
+        "ai21.j2-ultra-v1",
     ]
     model_id_key = "model_id"
     pypi_package_deps = ["boto3"]
